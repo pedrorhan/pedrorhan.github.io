@@ -26,27 +26,24 @@
     </div>
     <script src="script.js"></script>
     <script>
-        const symbols = ['❤️', '🌹', '💝', '💖', '💗'];
+        const symbols = ['❤️', '💕', '💜', '💗', '💖', '❣', '💞', '🌸', '💐', '🌺', '🌹', '🪻', '🪷', '🌷'];
         const heartsContainer = document.querySelector('.hearts');
-        const maxSymbols = 50; // Ekranda maksimum sembol sayısı
+        const maxSymbols = 30; // Ekrandaki sembol sayısını azalttım
         let activeSymbols = 0;
 
         function createSymbol() {
             if (activeSymbols >= maxSymbols) return;
             
             const element = document.createElement('div');
-            const isHeart = Math.random() > 0.3;
-            
-            element.className = isHeart ? 'heart' : 'rose';
+            element.className = 'heart';
             element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
             element.style.left = Math.random() * 100 + 'vw';
-            element.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            element.style.animationDuration = (Math.random() * 3 + 8) + 's'; // Animasyonu yavaşlattım
             element.style.opacity = Math.random() * 0.3 + 0.7;
             
             heartsContainer.appendChild(element);
             activeSymbols++;
 
-            // Animasyon bittiğinde elementi kaldır ve yenisini oluştur
             element.addEventListener('animationend', () => {
                 element.remove();
                 activeSymbols--;
@@ -56,7 +53,7 @@
 
         // Başlangıçta sembolleri oluştur
         for(let i = 0; i < maxSymbols; i++) {
-            setTimeout(() => createSymbol(), i * 100);
+            setTimeout(() => createSymbol(), i * 300); // Oluşturma aralığını arttırdım
         }
 
         // Müzik kontrolü için kod
