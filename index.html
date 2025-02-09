@@ -26,32 +26,40 @@
     </div>
     <script src="script.js"></script>
     <script>
+        const symbols = ['❤️', '🌹', '💝', '💖', '💗'];
+        const heartsContainer = document.querySelector('.hearts');
+        const maxSymbols = 50; // Ekranda maksimum sembol sayısı
+        let activeSymbols = 0;
+
         function createSymbol() {
-            const symbols = ['❤️', '🌹', '💝', '💖', '💗'];
+            if (activeSymbols >= maxSymbols) return;
+            
             const element = document.createElement('div');
             const isHeart = Math.random() > 0.3;
             
             element.className = isHeart ? 'heart' : 'rose';
             element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
             element.style.left = Math.random() * 100 + 'vw';
-            element.style.animationDuration = (Math.random() * 4 + 4) + 's';
-            element.style.opacity = Math.random() * 0.5 + 0.5;
-            document.querySelector('.hearts').appendChild(element);
+            element.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            element.style.opacity = Math.random() * 0.3 + 0.7;
             
-            setTimeout(() => {
+            heartsContainer.appendChild(element);
+            activeSymbols++;
+
+            // Animasyon bittiğinde elementi kaldır ve yenisini oluştur
+            element.addEventListener('animationend', () => {
                 element.remove();
-            }, 8000);
+                activeSymbols--;
+                createSymbol();
+            });
         }
 
-        // Her 100 milisaniyede bir yeni sembol oluştur
-        setInterval(createSymbol, 100);
-        
-        // Başlangıçta 20 tane sembol oluştur
-        for(let i = 0; i < 20; i++) {
-            createSymbol();
+        // Başlangıçta sembolleri oluştur
+        for(let i = 0; i < maxSymbols; i++) {
+            setTimeout(() => createSymbol(), i * 100);
         }
 
-        // Müzik kontrolü için yeni kod
+        // Müzik kontrolü için kod
         function toggleMusic() {
             const music = document.getElementById('bgMusic');
             if (music.paused) {
