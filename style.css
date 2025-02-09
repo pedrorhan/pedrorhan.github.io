@@ -2,9 +2,7 @@
 
 @font-face {
     font-family: 'Glittertine';
-    src: url('BeMyGlittertine.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    src: url('BeMyGlittertine.ttf');
 }
 
 * {
@@ -14,7 +12,7 @@
 }
 
 body {
-    font-family: 'Glittertine', sans-serif;
+    font-family: Glittertine;
     background: white;
     min-height: 100vh;
     position: relative;
@@ -36,7 +34,7 @@ body {
     font-size: 4.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     font-weight: normal;
-    font-family: 'Glittertine', sans-serif;
+    font-family: Glittertine;
 }
 
 .gallery {
@@ -74,7 +72,7 @@ body {
     color: #ff4d4d;
     line-height: 1.6;
     font-weight: normal;
-    font-family: 'Glittertine', sans-serif;
+    font-family: Glittertine;
 }
 
 /* Kalpler için animasyon */
