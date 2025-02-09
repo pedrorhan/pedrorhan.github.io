@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizim Hikayemiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hearts"></div>
+    <div class="container">
+        <h1 class="title">12.02.2023</h1>
+        <div class="gallery">
+            <div class="memory-card">
+                <img src="fotograf1.jpg" alt="Bizim fotoğrafımız">
+                <p class="message">Seni çok seviyorum sevgilim ❤️</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function createSymbol() {
+            const symbols = ['❤️', '🌹', '💝', '💖', '💗'];
+            const element = document.createElement('div');
+            const isHeart = Math.random() > 0.3;
+            
+            element.className = isHeart ? 'heart' : 'rose';
+            element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            element.style.opacity = Math.random() * 0.5 + 0.5;
+            document.querySelector('.hearts').appendChild(element);
+            
+            setTimeout(() => {
+                element.remove();
+            }, 8000);
+        }
+
+        // Her 100 milisaniyede bir yeni sembol oluştur
+        setInterval(createSymbol, 100);
+        
+        // Başlangıçta 20 tane sembol oluştur
+        for(let i = 0; i < 20; i++) {
+            createSymbol();
+        }
+    </script>
+</body>
+</html> 
