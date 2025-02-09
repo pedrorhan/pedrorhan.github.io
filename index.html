@@ -228,11 +228,13 @@
         }
 
         document.querySelectorAll('.flip-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.querySelector('.flip-card-inner').style.transform = 
-                    card.querySelector('.flip-card-inner').style.transform === 'rotateY(180deg)' 
-                        ? 'rotateY(0deg)' 
-                        : 'rotateY(180deg)';
+            card.addEventListener('click', function() {
+                const inner = this.querySelector('.flip-card-inner');
+                if (inner.style.transform === 'rotateY(180deg)') {
+                    inner.style.transform = 'rotateY(0deg)';
+                } else {
+                    inner.style.transform = 'rotateY(180deg)';
+                }
             });
         });
     </script>
