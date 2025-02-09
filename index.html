@@ -19,6 +19,26 @@
         <h1 class="title">12.02.2023</h1>
         <div class="gallery">
             <div class="memory-card">
+                <img src="fotograf2.jpg" alt="Bizim fotoğrafımız">
+                <p class="message">Seninle her an, her saniye çok güzel 💕</p>
+            </div>
+            <div class="memory-card">
+                <img src="fotograf3.jpg" alt="Bizim fotoğrafımız">
+                <p class="message">Her gülüşün kalbimi ısıtıyor 💖</p>
+            </div>
+            <div class="memory-card">
+                <img src="fotograf4.jpg" alt="Bizim fotoğrafımız">
+                <p class="message">Seninle geçen her anı seviyorum 💗</p>
+            </div>
+            <div class="memory-card">
+                <img src="fotograf5.jpg" alt="Bizim fotoğrafımız">
+                <p class="message">Sen benim en güzel şansımsın 💜</p>
+            </div>
+            <div class="memory-card">
+                <img src="fotograf6.jpg" alt="Bizim fotoğrafımız">
+                <p class="message">Hayatımın anlamısın 💝</p>
+            </div>
+            <div class="memory-card">
                 <img src="fotograf1.jpg" alt="Bizim fotoğrafımız">
                 <p class="message">Seni çok seviyorum sevgilim ❤️</p>
             </div>
@@ -28,7 +48,7 @@
     <script>
         const symbols = ['❤️', '💕', '💜', '💗', '💖', '❣', '💞', '🌸', '💐', '🌺', '🌹', '🪻', '🪷', '🌷'];
         const heartsContainer = document.querySelector('.hearts');
-        const maxSymbols = 30; // Ekrandaki sembol sayısını azalttım
+        const maxSymbols = 30;
         let activeSymbols = 0;
 
         function createSymbol() {
@@ -38,7 +58,7 @@
             element.className = 'heart';
             element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
             element.style.left = Math.random() * 100 + 'vw';
-            element.style.animationDuration = (Math.random() * 3 + 8) + 's'; // Animasyonu yavaşlattım
+            element.style.animationDuration = (Math.random() * 3 + 8) + 's';
             element.style.opacity = Math.random() * 0.3 + 0.7;
             
             heartsContainer.appendChild(element);
@@ -51,12 +71,10 @@
             });
         }
 
-        // Başlangıçta sembolleri oluştur
         for(let i = 0; i < maxSymbols; i++) {
-            setTimeout(() => createSymbol(), i * 300); // Oluşturma aralığını arttırdım
+            setTimeout(() => createSymbol(), i * 300);
         }
 
-        // Müzik kontrolü için kod
         function toggleMusic() {
             const music = document.getElementById('bgMusic');
             if (music.paused) {
