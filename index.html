@@ -9,6 +9,12 @@
 </head>
 <body>
     <div class="hearts"></div>
+    <div class="music-player">
+        <button onclick="toggleMusic()" class="music-button">🎵</button>
+        <audio id="bgMusic" loop>
+            <source src="senihergordugumde.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     <div class="container">
         <h1 class="title">12.02.2023</h1>
         <div class="gallery">
@@ -43,6 +49,18 @@
         // Başlangıçta 20 tane sembol oluştur
         for(let i = 0; i < 20; i++) {
             createSymbol();
+        }
+
+        // Müzik kontrolü için yeni kod
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            if (music.paused) {
+                music.play();
+                document.querySelector('.music-button').innerHTML = '🔇';
+            } else {
+                music.pause();
+                document.querySelector('.music-button').innerHTML = '🎵';
+            }
         }
     </script>
 </body>
