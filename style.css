@@ -121,8 +121,33 @@ body {
     color: #ff4d4d;
     text-align: center;
     font-family: 'Glittertine';
-    padding: 2rem;
-    line-height: 1.6;
+    padding: 1rem;
+    line-height: 1.4;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Mobil cihazlar için özel stiller */
+@media screen and (max-width: 768px) {
+    .back-message {
+        font-size: 1.6rem;
+        padding: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .message {
+        font-size: 1.6rem;
+        padding: 1rem;
+    }
+
+    .flip-card {
+        width: 95%;
+    }
+
+    .flip-card-front, .flip-card-back {
+        min-height: 300px;
+    }
 }
 
 /* Kalpler için animasyon */
